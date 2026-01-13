@@ -7,6 +7,30 @@ body{
     background-color: #a4b1ec;
 }
 
+img{
+    user-select: none;
+    caret-color: transparent;
+}
+
+.resume{
+    border-radius: 5px;
+    color: white;
+    margin-top: 7vh;
+}
+
+.resume-btn, .github-btn, .project1-btn, .project2-btn{
+    padding: 15px;
+    border-radius: 5px;
+    background-color: #2f50eb;
+    color: white;
+    text-decoration: none;
+    transition: 0.5s;
+    margin-top: 2vh;
+}
+.resume-btn:hover, .github-btn:hover, .project1-btn:hover, .project2-btn:hover{
+    background-color: #23c378;
+}
+
 #navbar{
     display: flex;
     flex-direction: row;
@@ -41,11 +65,10 @@ body{
     background-color: #23c378;
 }
 
-#profile-image{
-    width: 500px;
-    min-width:350px;
-    min-height:350px;
-    height: 500px;
+#profile-image {
+    width: 100%;
+    max-width: 500px;
+    aspect-ratio: 1 / 1; 
     border-radius: 50%;
     box-shadow: -20px 0px 0px 20px #2f50eb;
 }
@@ -62,6 +85,7 @@ body{
 
 .details{
     color: #2f50eb;
+    min-height: 50vh;
 }
 
 .details h1{
@@ -110,6 +134,7 @@ h4{
     align-items: center;
     font-family:'Times New Roman', Times, serif;
     min-height: 100%;
+    text-align: center;
 }
 
 .skills{
@@ -193,17 +218,12 @@ th, td{
 }
 
 .about-me{
-    min-height: 40vh;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    align-items: center;
-    font-family: Arial, sans-serif;
+    min-height: 30vh;
     background-color: rgb(15, 13, 13);
     color: white;
     display: flex;
     flex-direction: column;
-    justify-content:flex-start;
+    justify-content: flex-start;
     align-items: center;
     font-family: Arial, sans-serif;
 }
