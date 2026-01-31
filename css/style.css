@@ -14,48 +14,90 @@ body {
     color: #f0f0f0;
 }
 
-h1, h2, h3, h4, p {
-    margin-bottom: 15px;
-}
+h1,h2,h3,p { margin-bottom: 15px; }
 
-a {
-    text-decoration: none;
-    color: inherit;
-}
+a { text-decoration: none; color: inherit; }
 
 /* =========================
-   NAVBAR
+   NAVBAR / SIDEBAR
 ========================= */
 #navbar {
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     align-items: center;
     position: fixed;
     top: 0;
     width: 100%;
     height: 60px;
-    background: rgba(15, 15, 30, 0.7);
+    background: rgba(15,15,30,0.7);
     backdrop-filter: blur(10px);
     z-index: 1000;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
-    transition: all 0.3s ease;
+    padding: 0 20px;
+}
+
+.nav-brand { font-weight: bold; font-size: 1.5rem; color: #00fff7; }
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 15px;
 }
 
 .nav-link {
-    color: #f0f0f0;
-    font-weight: 500;
     padding: 10px 15px;
     border-radius: 8px;
     transition: all 0.3s ease;
-    position: relative;
 }
 
 .nav-link:hover,
 .nav-link.active {
     color: #00fff7;
-    background: rgba(0, 255, 247, 0.1);
+    background: rgba(0,255,247,0.1);
     backdrop-filter: blur(5px);
 }
+
+/* Hamburger */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 25px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger span {
+    height: 3px;
+    width: 100%;
+    background: #00fff7;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(5px,5px);}
+.hamburger.active span:nth-child(2) { opacity: 0;}
+.hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(5px,-5px);}
+
+/* Mobile Sidebar */
+@media screen and (max-width:900px){
+    .nav-links{
+        position: fixed;
+        top: 0;
+        left: -250px;
+        width: 250px;
+        height: 100%;
+        flex-direction: column;
+        padding-top: 80px;
+        background: rgba(15,15,30,0.95);
+        backdrop-filter: blur(10px);
+        transition: left 0.3s ease;
+    }
+    .nav-links.show { left:0; }
+    .nav-link { padding:15px 20px; font-size:1.2rem; border-bottom:1px solid rgba(255,255,255,0.1);}
+    .hamburger{ display:flex; }
+}
+
 
 /* Dark/Light Toggle Button */
 #dark-mode-toggle {
@@ -296,4 +338,10 @@ a {
         flex-direction: column;
         align-items: center;
     }
+    .buttons{
+        display: flex;
+        flex-direction: column;
+    }
 }
+
+
